@@ -268,3 +268,23 @@ function generic2<T extends {[key in string] : number}>(x : T) : T {
 }
 
 generic2({a : 1});
+
+// 제네릭 선언 위치 기억하기
+function A<T>() {}
+class B<T>() {}
+interface C<T> {}
+type D<T> = {};
+const e = <T>() => {};
+
+// 제네릭 기본값, extends
+function add<T extends string>(x: T, y: T) { 
+    return x + y 
+}
+add(1, 2);
+add('1', '2')
+
+// <T extends {...}> // 특정 객체
+// <T extends any[]> // 모든 배열
+// <T extends (...args: any) => any> // 모든 함수
+// <T extends abstract new (...args: any) => any> // 생성자 타입
+// <T extends keyof any> // string | number | symbol
